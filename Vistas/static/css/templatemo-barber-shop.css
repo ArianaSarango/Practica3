@@ -12,15 +12,15 @@ https://templatemo.com/tm-585-barber-shop
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #d6a354;
-  --secondary-color:              #c12828;
-  --section-bg-color:             #f0f8ff;
-  --custom-btn-bg-color:          #c12828;
-  --custom-btn-bg-hover-color:    #FDBB2D;
-  --dark-color:                   #000000;
-  --p-color:                      #717275;
+  --primary-color:                #780552;
+  --secondary-color:              #780552;
+  --section-bg-color:             #ffffff;
+  --custom-btn-bg-color:          #c42d2d;
+  --custom-btn-bg-hover-color:    #ffffff;
+  --dark-color:                   #0b0b0b;
+  --p-color:                      #ffffff;
   --border-color:                 #7fffd4;
-  --link-hover-color:             #B22727;
+  --link-hover-color:             #ffffff;
 
   --body-font-family:             'Unbounded', cursive;
 
@@ -170,7 +170,7 @@ strong {
 }
 
 .custom-block-bg-overlay-wrap:hover {
-  background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+  background: linear-gradient(90deg, #f4f0f4 0%, #c3b1c0 100%);
   transform: scale(1.05);
 }
 
@@ -372,7 +372,7 @@ strong {
 
 .hero-section::after {
   content: "";
-  background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+  background: linear-gradient(90deg, #000000 0%, #000000 100%);
   position: absolute;
   top: 0;
   right: 0;
@@ -723,7 +723,7 @@ strong {
 .social-icon-link {
   background: var(--secondary-color);
   border-radius: var(--border-radius-large);
-  color: var(--white-color);
+  color: var(--black-color);
   font-size: var(--copyright-font-size);
   display: block;
   margin: 0 3px;
@@ -840,4 +840,3 @@ strong {
     padding: 35px;
   }
 }
-

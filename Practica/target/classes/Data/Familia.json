@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "canton": "Chaguarpamba",
+        "apellidoPaterno": "Salinas",
+        "apellidoMaterno": "Lopez",
+        "integrantes": 4,
+        "tieneGenerador": true
+    },
+    {
+        "id": 2,
+        "canton": "Macará",
+        "apellidoPaterno": "Cruz",
+        "apellidoMaterno": "Jimenez",
+        "integrantes": 3,
+        "tieneGenerador": false
+    },
+    {
+        "id": 3,
+        "canton": "Sozoranga",
+        "apellidoPaterno": "Gomez",
+        "apellidoMaterno": "Calle",
+        "integrantes": 5,
+        "tieneGenerador": true
+    },
+    {
+        "id": 4,
+        "canton": "Espindola",
+        "apellidoPaterno": "Ramos",
+        "apellidoMaterno": "Ortiz",
+        "integrantes": 6,
+        "tieneGenerador": false
+    },
+    {
+        "id": 5,
+        "canton": "Saraguro",
+        "apellidoPaterno": "Vega",
+        "apellidoMaterno": "Alvarez",
+        "integrantes": 4,
+        "tieneGenerador": true
+    },
+    {
+        "id": 6,
+        "canton": "Catamayo",
+        "apellidoPaterno": "Zapata",
+        "apellidoMaterno": "Romero",
+        "integrantes": 3,
+        "tieneGenerador": false
+    },
+    {
+        "id": 7,
+        "canton": "Quilanga",
+        "apellidoPaterno": "Guerrero",
+        "apellidoMaterno": "Montenegro",
+        "integrantes": 5,
+        "tieneGenerador": true
+    },
+    {
+        "id": 8,
+        "canton": "Loja",
+        "apellidoPaterno": "Carpio",
+        "apellidoMaterno": "Benitez",
+        "integrantes": 7,
+        "tieneGenerador": false
+    },
+    {
+        "id": 9,
+        "canton": "Zapotillo",
+        "apellidoPaterno": "Luna",
+        "apellidoMaterno": "Cedeño",
+        "integrantes": 5,
+        "tieneGenerador": true
+    },
+    {
+        "id": 10,
+        "canton": "Pindal",
+        "apellidoPaterno": "Muñoz",
+        "apellidoMaterno": "Flores",
+        "integrantes": 4,
+        "tieneGenerador": true
+    },
+    {
+        "id": 11,
+        "canton": "Olmedo",
+        "apellidoPaterno": "Bravo",
+        "apellidoMaterno": "Fierro",
+        "integrantes": 6,
+        "tieneGenerador": false
+    },
+    {
+        "id": 12,
+        "canton": "Celica",
+        "apellidoPaterno": "Camacho",
+        "apellidoMaterno": "Leon",
+        "integrantes": 4,
+        "tieneGenerador": true
+    },
+    {
+        "id": 13,
+        "canton": "Calvas",
+        "apellidoPaterno": "Narvaez",
+        "apellidoMaterno": "Quispe",
+        "integrantes": 5,
+        "tieneGenerador": false
+    },
+    {
+        "id": 14,
+        "canton": "Malacatos",
+        "apellidoPaterno": "Palacios",
+        "apellidoMaterno": "Medina",
+        "integrantes": 3,
+        "tieneGenerador": true
+    }
+]

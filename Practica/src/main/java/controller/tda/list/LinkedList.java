@@ -320,18 +320,24 @@ public class LinkedList<E> {
             System.out.println("Se está usando shellSort");
             E[] lista = this.toArray();
             int n = lista.length;
-
-            for (int gap = n / 2; gap > 0; gap /= 2) {
+    
+            int gap = 1;
+            while (gap < n / 3) {
+                gap = 3 * gap + 1;
+            }
+    
+            while (gap > 0) {
                 for (int i = gap; i < n; i++) {
                     E aux = lista[i];
-                    int j;
+                    int j = i;
 
-                    for (j = i; j >= gap && attribute_compare(attribute, lista[j - gap], aux, type); j -= gap) {
+                    while (j >= gap && attribute_compare(attribute, lista[j - gap], aux, type)) {
                         lista[j] = lista[j - gap];
+                        j -= gap;
                     }
-
                     lista[j] = aux;
                 }
+                gap /= 3;
             }
             this.toList(lista);
         }
@@ -346,90 +352,90 @@ public class LinkedList<E> {
         }
         return this;
     }
-
+    
     private void quickSortHelper(E[] arr, int low, int high, String attribute, Integer type) throws Exception {
         if (low < high) {
-            int pivotIndex = partition(arr, low, high, attribute, type);
-            quickSortHelper(arr, low, pivotIndex - 1, attribute, type);
+            int pivotIndex = hoarePartition(arr, low, high, attribute, type);
+            quickSortHelper(arr, low, pivotIndex, attribute, type);
             quickSortHelper(arr, pivotIndex + 1, high, attribute, type);
         }
     }
+    
+    private int hoarePartition(E[] arr, int low, int high, String attribute, Integer type) throws Exception {
+        E pivot = arr[low];
+        int i = low - 1; 
+        int j = high + 1; 
+    
+        while (true) {
 
-    private int partition(E[] arr, int low, int high, String attribute, Integer type) throws Exception {
-        E pivot = arr[high];
-        int i = low - 1;
-
-        for (int j = low; j < high; j++) {
-            if (attribute_compare(attribute, pivot, arr[j], type)) {
+            do {
                 i++;
-                swap(arr, i, j);
+            } while (attribute_compare(attribute, pivot, arr[i], type));
+    
+            do {
+                j--;
+            } while (attribute_compare(attribute, arr[j], pivot, type)); 
+    
+            if (i >= j) {
+                return j;
             }
+            swap(arr, i, j);
         }
-        swap(arr, i + 1, high);
-        return i + 1;
     }
-
+    
     private void swap(E[] arr, int i, int j) {
         E temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
-
+    
     public LinkedList<E> mergeSort(String attribute, Integer type) throws Exception {
         if (!isEmpty()) {
-            E[] lista = this.toArray(); 
-            lista = mergeSortHelper(lista, attribute, type); 
-            this.toList(lista); 
+            E[] array = this.toArray();
+            array = mergeSortIterative(array, attribute, type);
+            this.toList(array);
         }
         return this;
     }
-
-    private E[] mergeSortHelper(E[] array, String attribute, Integer type) throws Exception {
-        if (array.length < 2) {
-            return array; 
+    
+    private E[] mergeSortIterative(E[] array, String attribute, Integer type) throws Exception {
+        int n = array.length;
+        E[] temp = (E[]) new Object[n];
+    
+        for (int size = 1; size < n; size *= 2) {
+            
+            for (int leftStart = 0; leftStart < n; leftStart += 2 * size) {
+                int mid = Math.min(leftStart + size, n);
+                int rightEnd = Math.min(leftStart + 2 * size, n);
+                merge(array, temp, leftStart, mid, rightEnd, attribute, type);
+            }
+            
+            System.arraycopy(temp, 0, array, 0, n);
         }
     
-        int mid = array.length / 2; 
-        E[] left = copiarRangoArray(array, 0, mid); 
-        E[] right = copiarRangoArray(array, mid, array.length); 
-    
-        left = mergeSortHelper(left, attribute, type);
-        right = mergeSortHelper(right, attribute, type);
-    
-        return merge(left, right, attribute, type);
-    }
-
-    private E[] copiarRangoArray(E[] array, int start, int end) {
-        int length = end - start;
-        E[] newArray = (E[]) new Object[length];
-        for (int i = 0; i < length; i++) {
-            newArray[i] = array[start + i];
-        }
-        return newArray;
+        return array;
     }
     
-    private E[] merge(E[] left, E[] right, String attribute, Integer type) throws Exception {
-        E[] resultado = (E[]) new Object[left.length + right.length]; 
-        int i = 0, j = 0, k = 0;
-
-        while (i < left.length && j < right.length) {
-            if (attribute_compare(attribute, left[i], right[j], type)) {
-            resultado[k++] = right[j++];                
+    private void merge(E[] array, E[] temp, int leftStart, int mid, int rightEnd, String attribute, Integer type) throws Exception {
+        int i = leftStart, j = mid, k = leftStart;
+    
+        while (i < mid && j < rightEnd) {
+            if (attribute_compare(attribute, array[i], array[j], type)) {
+                temp[k++] = array[j++];
             } else {
-            resultado[k++] = left[i++];
-
+                temp[k++] = array[i++];
             }
         }
-        while (i < left.length) {
-            resultado[k++] = left[i++];
+    
+        while (i < mid) {
+            temp[k++] = array[i++];
         }
-        while (j < right.length) {
-            resultado[k++] = right[j++];
+    
+        while (j < rightEnd) {
+            temp[k++] = array[j++];
         }
-
-        return resultado;
     }
-
+    
     private Boolean compare(Object a, Object b, Integer type) {
         switch (type) {
             case 0:
